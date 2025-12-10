@@ -1,0 +1,68 @@
+name: weather_app
+description: A comprehensive weather application using OpenWeatherMap API with state management and clean architecture.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # API & Networking
+  http: ^1.1.0
+  dio: ^5.4.0
+  
+  # Local Storage
+  shared_preferences: ^2.2.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  
+  # Location Services
+  geolocator: ^10.1.0
+  geocoding: ^2.1.1
+  
+  # UI Components
+  cupertino_icons: ^1.0.2
+  flutter_spinkit: ^5.2.0
+  shimmer: ^3.0.0
+  cached_network_image: ^3.3.0
+  
+  # Charts & Visualization
+  fl_chart: ^0.65.0
+  
+  # Utilities
+  intl: ^0.18.1
+  connectivity_plus: ^5.0.2
+  package_info_plus: ^5.0.1
+  
+  # Animations
+  lottie: ^2.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.7
+
+flutter:
+  uses-material-design: true
+  
+  # Uncomment when you add assets
+  # assets:
+  #   - assets/images/
+  #   - assets/animations/
+  #   - assets/icons/
+  
+  # Uncomment when you add custom fonts
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: assets/fonts/Poppins-Regular.ttf
+  #       - asset: assets/fonts/Poppins-Bold.ttf
+  #         weight: 700
