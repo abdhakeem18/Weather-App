@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../weather/presentation/providers/weather_provider.dart';
-import '../../../favorites/presentation/providers/favorites_provider.dart';
-import '../../../settings/presentation/providers/settings_provider.dart';
 import '../widgets/weather_card.dart';
 import '../widgets/forecast_list.dart';
 import '../widgets/weather_details.dart';
@@ -80,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.error_outline,
                     size: 64,
                     color: Colors.red,
