@@ -10,8 +10,8 @@ class AppConfig {
 
   static const int cacheExpirationMinutes = 10;
   static const int maxFavoriteCities = 10;
-  static const double defaultLatitude = 6.9271;
-  static const double defaultLongitude = 79.8612;
+  static const double defaultLatitude = 8.032945;
+  static const double defaultLongitude = 79.837684;
 
   static const String metric = 'metric';
   static const String imperial = 'imperial';
