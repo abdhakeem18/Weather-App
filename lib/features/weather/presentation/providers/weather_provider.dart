@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import '../../data/models/weather_model.dart';
 import '../../data/models/forecast_model.dart';
@@ -134,21 +135,16 @@ class WeatherProvider with ChangeNotifier {
     }
   }
 
-  // Check if weather alert should be shown
   bool hasWeatherAlert() {
     if (_currentWeather == null) return false;
 
-    // Check extreme temperature
     if (_currentWeather!.temperature > 40 || _currentWeather!.temperature < 0) {
       return true;
     }
-
-    // Check strong wind
     if (_currentWeather!.windSpeed > 50) {
       return true;
     }
 
-    // Check poor air quality
     if (_airQuality != null && _airQuality!.aqi >= 4) {
       return true;
     }
@@ -156,27 +152,46 @@ class WeatherProvider with ChangeNotifier {
     return false;
   }
 
-  // Get alert message
   String? getAlertMessage() {
     if (!hasWeatherAlert()) return null;
 
     List<String> alerts = [];
 
     if (_currentWeather!.temperature > 40) {
-      alerts.add('⚠️ Extreme heat warning');
+      alerts.add('Extreme heat warning');
     } else if (_currentWeather!.temperature < 0) {
-      alerts.add('❄️ Freezing temperature warning');
+      alerts.add('Freezing temperature warning');
     }
 
     if (_currentWeather!.windSpeed > 50) {
-      alerts.add('💨 Strong wind warning');
+      alerts.add('Strong wind warning');
     }
 
     if (_airQuality != null && _airQuality!.aqi >= 4) {
-      alerts.add('🏭 Poor air quality alert');
+      alerts.add('Poor air quality alert');
     }
 
     return alerts.join('\n');
+  }
+
+  IconData? getAlertIcon() {
+    if (!hasWeatherAlert()) return null;
+
+    if (_currentWeather!.temperature > 40) {
+      return Icons.warning_amber_rounded;
+    } else if (_currentWeather!.temperature < 0) {
+      return Icons.ac_unit;
+    }
+
+    if (_currentWeather!.windSpeed > 50) {
+      return Icons.air;
+    }
+
+    if (_airQuality != null && _airQuality!.aqi >= 4) {
+      return Icons.masks;
+    }
+
+    return Icons.warning;
   }
 
   void _setLoading(bool value) {
